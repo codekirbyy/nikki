@@ -62,3 +62,30 @@ function createFallingFlowers() {
 }
 
 document.addEventListener("DOMContentLoaded", createFallingFlowers);
+const noButton = document.querySelector('.no-btn');
+const yesButton = document.querySelector('.yes-btn');
+const message = document.querySelector('.final-message');
+
+// Function to move "No" button randomly
+function moveButton(event) {
+    let viewportWidth = window.innerWidth;
+    let viewportHeight = window.innerHeight;
+
+    let newX = Math.random() * (viewportWidth - noButton.clientWidth);
+    let newY = Math.random() * (viewportHeight - noButton.clientHeight);
+
+    noButton.style.position = "absolute";
+    noButton.style.left = `${newX}px`;
+    noButton.style.top = `${newY}px`;
+}
+
+// Add event listeners for both desktop and mobile
+noButton.addEventListener("mouseenter", moveButton); // For desktop hover
+noButton.addEventListener("touchstart", moveButton); // For mobile tap
+
+// Yes button click function
+yesButton.addEventListener("click", function() {
+    document.querySelector('.main-container').style.display = 'none';
+    document.querySelector('.heart-container').style.display = 'block';
+});
+
