@@ -1,153 +1,97 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #ffdde1;
+/* Reset styles */
+* {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-/* Main Container */
-.main-container {
-    margin-top: 50px;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    text-align: center;
+}
+
+/* Main container */
+.container {
+    background: white;
     padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 400px;
 }
 
-/* Title */
+/* Heading */
 h1 {
     color: #ff4d6d;
-    font-size: 2.2em;
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Photo */
-.photo {
-    width: 80%;
-    max-width: 300px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-    margin: 20px 0;
-}
-
-/* Paragraph */
-p {
-    font-size: 1.2em;
-    color: #333;
-    margin: 20px;
+    margin-bottom: 15px;
 }
 
 /* Buttons */
 .buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 15px;
 }
 
-/* General Button Styling */
-.yes-btn, .no-btn {
-    background-color: #ff4d6d;
-    color: white;
+button {
+    padding: 10px 20px;
+    font-size: 18px;
     border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
     cursor: pointer;
-    border-radius: 10px;
+    margin: 10px;
+    border-radius: 8px;
     transition: 0.3s;
-    min-width: 120px;
-    text-align: center;
 }
 
-.yes-btn:hover {
-    background-color: #ff1e4d;
+#yesBtn {
+    background: #ff4d6d;
+    color: white;
 }
 
-/* No Button Styling */
-.no-btn {
-    position: relative;
+#noBtn {
+    background: #ddd;
+    color: black;
 }
 
-.no-btn:hover {
-    background-color: gray;
+#yesBtn:hover {
+    background: #e63950;
 }
 
-/* Falling Flowers Effect */
-.flowers-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
+#noBtn:hover {
+    background: #bbb;
 }
 
-@keyframes fall {
-    from { transform: translateY(-10px) rotate(0deg); opacity: 1; }
-    to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-}
-
-.flower {
-    position: absolute;
-    animation: fall 5s linear infinite;
-}
-
-/* Heart Fill Section */
-.heart-container, .photo-gallery {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    text-align: center;
-}
-
-/* Heart Shape */
-.heart-outline {
-    width: 150px;
-    height: 150px;
-    position: relative;
-    background-color: transparent;
-    border: 5px solid #ff4d6d;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    overflow: hidden;
-}
-
-/* Filling Heart */
-.heart-fill {
-    width: 100%;
-    height: 0%;
-    background-color: #ff7b9e;
-    position: absolute;
-    bottom: 0;
-    transition: height 0.3s ease-in-out;
-}
-
-/* Photo Gallery in Heart Shape */
-.photo-gallery {
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.photo-gallery img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Message After Filling Heart */
-.final-message {
-    font-size: 1.5em;
-    color: #ff4d6d;
+/* Message response */
+#response {
     margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        height: auto;
+        padding: 20px;
+    }
+    .container {
+        width: 100%;
+        max-width: 350px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    .buttons {
+        flex-direction: column;
+    }
+    button {
+        font-size: 16px;
+        width: 100%;
+    }
 }
