@@ -1,0 +1,218 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffdde1;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Main Container */
+.main-container {
+    margin-top: 50px;
+    padding: 20px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Title */
+h1 {
+    color: #ff4d6d;
+    font-size: 2.2em;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Photo */
+.photo {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    margin: 20px 0;
+}
+
+/* Paragraph */
+p {
+    font-size: 1.2em;
+    color: #333;
+    margin: 20px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* General Button Styling */
+.yes-btn, .no-btn {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    min-width: 120px;
+    text-align: center;
+}
+
+.yes-btn:hover {
+    background-color: #ff1e4d;
+}
+
+/* No Button Styling */
+.no-btn {
+    position: relative;
+}
+
+.no-btn:hover {
+    background-color: gray;
+}
+
+/* Falling Flowers Effect */
+.flowers-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+@keyframes fall {
+    from { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+    to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.flower {
+    position: absolute;
+    animation: fall 5s linear infinite;
+}
+
+/* Heart Fill Section */
+.heart-container, .photo-gallery {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Heart Shape */
+.heart-outline {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    background-color: transparent;
+    border: 5px solid #ff4d6d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+/* Filling Heart */
+.heart-fill {
+    width: 100%;
+    height: 0%;
+    background-color: #ff7b9e;
+    position: absolute;
+    bottom: 0;
+    transition: height 0.3s ease-in-out;
+}
+
+/* Photo Gallery in Heart Shape */
+.photo-gallery {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.photo-gallery img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Message After Filling Heart */
+.final-message {
+    font-size: 1.5em;
+    color: #ff4d6d;
+    margin-top: 20px;
+}
+/* Make sure the container is centered and responsive */
+.main-container {
+    margin-top: 50px;
+    padding: 20px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Ensure text scales properly on mobile */
+h1 {
+    font-size: 2.2em;
+}
+
+/* Adjust the size of the image for different screen sizes */
+.photo {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    margin: 20px 0;
+}
+
+/* Make buttons responsive */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Make the buttons easier to tap on mobile */
+.yes-btn, .no-btn {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    min-width: 120px;
+    text-align: center;
+}
+
+/* No button position fix */
+.no-btn {
+    position: absolute;
+}
+
+/* Responsive Fixes */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .yes-btn, .no-btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .photo {
+        width: 90%;
+    }
+}

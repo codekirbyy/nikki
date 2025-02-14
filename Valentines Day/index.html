@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            background-color: pink;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .flowers-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .main-container {
+            margin-top: 100px;
+        }
+        h1 {
+            font-size: 32px;
+        }
+        .photo {
+            width: 200px;
+            border-radius: 10px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .yes-btn, .no-btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .yes-btn {
+            background-color: red;
+            color: white;
+        }
+        .no-btn {
+            background-color: gray;
+            color: white;
+            position: absolute;
+        }
+        .heart-container {
+            display: none;
+            margin-top: 50px;
+        }
+        .heart-outline {
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+            border: 2px solid red;
+            clip-path: path('M50 15 C20 -10, -30 50, 50 100 C130 50, 80 -10, 50 15');
+            cursor: pointer;
+            position: relative;
+            margin: auto;
+        }
+        .heart-fill {
+            width: 100%;
+            height: 0;
+            background-color: red;
+            position: absolute;
+            bottom: 0;
+            transition: height 0.3s;
+        }
+        .photo-gallery {
+            display: none;
+            margin-top: 50px;
+        }
+        .final-message {
+            font-size: 22px;
+            font-weight: bold;
+            color: red;
+        }
+        .heart-album {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .heart-album img {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .heart-album img:hover {
+            transform: scale(1.1);
+        }
+        /* Heart shape positioning */
+        .heart-album img:nth-child(1) { top: 20px; left: 50px; }
+        .heart-album img:nth-child(2) { top: 20px; right: 50px; }
+        .heart-album img:nth-child(3) { top: 70px; left: 20px; }
+        .heart-album img:nth-child(4) { top: 70px; right: 20px; }
+        .heart-album img:nth-child(5) { top: 120px; left: 40px; }
+        .heart-album img:nth-child(6) { top: 120px; right: 40px; }
+        .heart-album img:nth-child(7) { top: 170px; left: 60px; }
+        .heart-album img:nth-child(8) { top: 170px; right: 60px; }
+        .heart-album img:nth-child(9) { top: 220px; left: 80px; }
+        .heart-album img:nth-child(10) { top: 220px; right: 80px; }
+        .heart-album img:nth-child(11) { top: 270px; left: 50%; transform: translateX(-50%); }
+    </style>
+</head>
+<body>
+    <div class="flowers-container"></div>
+    <div class="main-container">
+        <h1>Will you be my Valentine? ❤️</h1>
+        <img class="photo" src="pics/nikki.jpg" alt="HEIMY">
+        <p>Make my day special by saying Yes! 💖</p>
+        <div class="buttons">
+            <button class="yes-btn" onclick="startHeartFilling()">Yes</button>
+            <button class="no-btn" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+    
+    <div class="heart-container">
+        <h2>Tap fast to fill the heart! 💗</h2>
+        <div class="heart-outline" onclick="tapHeart()">
+            <div class="heart-fill"></div>
+        </div>
+    </div>
+
+    <div class="photo-gallery">
+        <h2 class="final-message">Thank you, your flowers will arrive to you anytime soon! 💐</h2>
+        <div class="heart-album">
+            <img src="pics/photo1.jpg">
+            <img src="pics/photo2.jpg">
+            <img src="pics/photo3.jpg">
+            <img src="pics/photo4.jpg">
+            <img src="pics/photo6.jpg">
+            <img src="pics/photo6.jpg">
+            <img src="pics/photo7.jpg">
+            <img src="pics/photo8.png">
+            <img src="pics/photo9.png">
+            <img src="pics/photo10.png">
+            <img src="pics/photo11.png">
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            let btn = document.querySelector('.no-btn');
+            btn.style.top = Math.random() * window.innerHeight + 'px';
+            btn.style.left = Math.random() * window.innerWidth + 'px';
+        }
+        function startHeartFilling() {
+            document.querySelector('.main-container').style.display = 'none';
+            document.querySelector('.heart-container').style.display = 'block';
+        }
+        let fillAmount = 0;
+        function tapHeart() {
+            let heartFill = document.querySelector('.heart-fill');
+            fillAmount += 10;
+            heartFill.style.height = fillAmount + '%';
+            if (fillAmount >= 100) {
+                document.querySelector('.heart-container').style.display = 'none';
+                document.querySelector('.photo-gallery').style.display = 'block';
+            }
+        }
+    </script>  
+</body>
+</html>
